@@ -1,0 +1,24 @@
+{
+  "author": "Maciej Małecki <maciej.malecki@notimplemented.org>",
+  "name": "winston-nssocket",
+  "description": "nssocket transport for winston",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mmalecki/winston-nssocket.git"
+  },
+  "main": "./lib/winston-nssocket",
+  "scripts": {
+    "test": "vows --spec --isolate"
+  },
+  "engines": {
+    "node": ">= 0.4"
+  },
+  "dependencies": {
+    "winston": "0.5.x",
+    "nssocket": "0.3.x"
+  },
+  "devDependencies": {
+    "vows": "0.6.x"
+  }
+}
