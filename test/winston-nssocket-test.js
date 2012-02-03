@@ -2,6 +2,7 @@ var assert = require('assert'),
     vows = require('vows'),
     winston = require('winston'),
     nssocket = require('nssocket'),
+    macros = require('./helpers/macros'),
     ns = require('../');
 
 vows.describe('winston-nssocket').addBatch({
@@ -16,17 +17,8 @@ vows.describe('winston-nssocket').addBatch({
       nssocket.createServer(this.callback.bind(this, null, logger)).listen(1234);
     },
     'it should send logs to `nssocket` server': {
-      topic: function (logger, sock) {
-        sock.data(['log'], this.callback.bind(this, null));
-        logger.error('hello, world!');
-      },
-      'with correct payload': function (payload) {
-        assert.deepEqual(payload, {
-          message: 'hello, world!',
-          level: 'error',
-          meta: null
-        });
-      }
+      'with no meta': macros.log('info', 'hello world!'),
+      'with meta': macros.log('error', 'hello world!', { chill: 'winston!' })
     }
   }
 }).export(module);
