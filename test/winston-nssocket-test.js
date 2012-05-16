@@ -35,4 +35,11 @@ vows.describe('winston/transports/nssocket').addBatch({
     host: 'localhost',
     port: 1234
   })
+}).addBatch({
+  'An instance of the Nssocket Transport': {
+    'topic': server,
+    'should cleanup when done': function() {
+      server.close();
+    }
+  }
 }).export(module);
