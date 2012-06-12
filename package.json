@@ -15,7 +15,7 @@
     "node": ">= 0.4"
   },
   "dependencies": {
-    "winston": "0.5.x",
+    "winston": "0.6.x",
     "nssocket": "0.3.x"
   },
   "devDependencies": {
